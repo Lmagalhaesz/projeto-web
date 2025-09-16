@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/ferrari-ges.svg">
+    <title>Ferrari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #e0e0e0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-container {
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .ferrari-logo {
+            width: 40px;
+            height: 40px;
+            background: #FFD700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
+            margin-right: 30px;
+            font-size: 12px;
+        }
+        .ferrari-logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .nav-main {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-main a {
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-main a:hover {
+            color: #666;
+        }
+
+        .nav-main a.active {
+            color: #FFD700;
+            font-weight: 700;
+        }
+
+        .search-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: #000;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+        }
+
+        /* Hero Banner */
+        .discover-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 800"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23000000;stop-opacity:1" /><stop offset="50%" style="stop-color:%23333333;stop-opacity:1" /><stop offset="100%" style="stop-color:%23000000;stop-opacity:1" /></linearGradient></defs><rect width="1920" height="800" fill="url(%23grad)"/><path d="M200 400 L400 300 L600 400 L800 300 L1000 400 L1200 300 L1400 400 L1600 300 L1800 400" stroke="%23FFD700" stroke-width="2" fill="none" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 30px;
+        }
+
+        .hero-breadcrumb {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            color: #ccc;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #ddd;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: #f8f8f8;
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .filter-title {
+            font-size: 2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            color: #666;
+        }
+
+        .filter-tab.active {
+            color: #000;
+            border-bottom-color: #FFD700;
+        }
+
+        .filter-tab:hover {
+            color: #000;
+        }
+
+        /* Models Grid */
+        .models-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 80px;
+        }
+
+        .model-card {
+            background: #fff;
+            border-radius: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        }
+
+        .model-image {
+            height: 350px;
+            background: linear-gradient(135deg, #000 0%, #333 50%, #666 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #FFD700;
+            color: #000;
+            padding: 5px 15px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .model-info {
+            padding: 40px 35px;
+        }
+
+        .model-category {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .model-name {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .model-specs {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .spec-item {
+            text-align: center;
+        }
+
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            display: block;
+        }
+
+        .spec-label {
+            font-size: 10px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .model-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            font-size: 14px;
+        }
+
+        .model-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-configure {
+            background: #000;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #000;
+        }
+
+        .btn-configure:hover {
+            background: transparent;
+            color: #000;
+        }
+
+        .btn-details {
+            background: transparent;
+            color: #000;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+        }
+
+        .btn-details:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 120px 0;
+            background: #000;
+            color: #fff;
+        }
+
+        .experience-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-title {
+            font-size: 3rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+        }
+
+        .experience-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 50px;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .experience-item {
+            text-align: center;
+            padding: 40px 20px;
+            border: 1px solid #333;
+            transition: all 0.4s ease;
+        }
+
+        .experience-item:hover {
+            border-color: #FFD700;
+            background: #111;
+        }
+
+        .experience-icon {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 30px;
+        }
+
+        .experience-item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .experience-item-desc {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 80px 0;
+            background: #f8f8f8;
+            text-align: center;
+        }
+
+        .newsletter-title {
+            font-size: 2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-text {
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            background: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            border-color: #000;
+        }
+
+        .newsletter-btn {
+            background: #000;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 20px;
+            }
+            
+            .nav-main {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+                letter-spacing: 3px;
+            }
+
+            .models-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .filter-tabs {
+                gap: 30px;
+            }
+
+            .model-specs {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html" class="ferrari-logo"><img src="images/ferrari-ges.svg" alt=""></a>
+                <nav class="nav-main">
+                    <a href="#">Ferrari</a>
+                    <a href="#">SF-25</a>
+                    <a href="#" class="active">Discover</a>
+                    <a href="#">Sports Cars</a>
+                </nav>
+            </div>
+            <div class="search-section">
+                <button class="search-btn">🔍 Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Banner -->
+        <section class="discover-hero">
+            <div class="hero-content">
+                <div class="hero-breadcrumb">Ferrari / Discover</div>
+                <h1 class="hero-title">Discover<br>Ferrari</h1>
+                <p class="hero-subtitle">Explore our complete range of extraordinary vehicles, each engineered to deliver uncompromising performance and unmistakable Italian design.</p>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <h2 class="filter-title">Find Your Ferrari</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All Models</button>
+                    <button class="filter-tab">Sports Cars</button>
+                    <button class="filter-tab">Supercars</button>
+                    <button class="filter-tab">GT</button>
+                    <button class="filter-tab">Limited Series</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Models Grid -->
+        <section class="models-section">
+            <div class="container">
+                <div class="models-grid">
+                    <!-- F80 -->
+                    <div class="model-card">
+                        <div class="model-image">
+                            <div class="model-badge">New</div>
+                            F80
+                        </div>
+                        <div class="model-info">
+                            <div class="model-category">Limited Series Supercar</div>
+                            <h3 class="model-name">Ferrari F80</h3>
+                            <div class="model-specs">
+                                <div class="spec-item">
+                                    <span class="spec-value">1200</span>
+                                    <span class="spec-label">HP</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">2.15</span>
+                                    <span class="spec-label">0-100 KM/H</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">350+</span>
+                                    <span class="spec-label">TOP SPEED</span>
+                                </div>
+                            </div>
+                            <p class="model-description">The ultimate expression of Ferrari's technological excellence, representing the pinnacle of hybrid supercar engineering and aerodynamic innovation.</p>
+                            <div class="model-actions">
+                                <a href="#" class="btn-configure">Configure</a>
+                                <a href="#" class="btn-details">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SF90 Stradale -->
+                    <div class="model-card">
+                        <div class="model-image">SF90</div>
+                        <div class="model-info">
+                            <div class="model-category">Plug-in Hybrid Supercar</div>
+                            <h3 class="model-name">SF90 Stradale</h3>
+                            <div class="model-specs">
+                                <div class="spec-item">
+                                    <span class="spec-value">1000</span>
+                                    <span class="spec-label">HP</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">2.5</span>
+                                    <span class="spec-label">0-100 KM/H</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">340</span>
+                                    <span class="spec-label">TOP SPEED</span>
+                                </div>
+                            </div>
+                            <p class="model-description">Revolutionary hybrid architecture combining Ferrari's first series production plug-in hybrid powertrain with groundbreaking aerodynamics.</p>
+                            <div class="model-actions">
+                                <a href="#" class="btn-configure">Configure</a>
+                                <a href="#" class="btn-details">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 296 GTB -->
+                    <div class="model-card">
+                        <div class="model-image">296 GTB</div>
+                        <div class="model-info">
+                            <div class="model-category">Hybrid V6 Berlinetta</div>
+                            <h3 class="model-name">296 GTB</h3>
+                            <div class="model-specs">
+                                <div class="spec-item">
+                                    <span class="spec-value">830</span>
+                                    <span class="spec-label">HP</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">2.9</span>
+                                    <span class="spec-label">0-100 KM/H</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">330</span>
+                                    <span class="spec-label">TOP SPEED</span>
+                                </div>
+                            </div>
+                            <p class="model-description">Perfect synthesis of performance, driving pleasure and usability that introduces a new engine architecture to the range.</p>
+                            <div class="model-actions">
+                                <a href="#" class="btn-configure">Configure</a>
+                                <a href="#" class="btn-details">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 812 Superfast -->
+                    <div class="model-card">
+                        <div class="model-image">812</div>
+                        <div class="model-info">
+                            <div class="model-category">V12 GT</div>
+                            <h3 class="model-name">812 Superfast</h3>
+                            <div class="model-specs">
+                                <div class="spec-item">
+                                    <span class="spec-value">800</span>
+                                    <span class="spec-label">HP</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">2.9</span>
+                                    <span class="spec-label">0-100 KM/H</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">340</span>
+                                    <span class="spec-label">TOP SPEED</span>
+                                </div>
+                            </div>
+                            <p class="model-description">The most powerful and fastest Ferrari in the marque's history, representing the pinnacle of naturally aspirated V12 performance.</p>
+                            <div class="model-actions">
+                                <a href="#" class="btn-configure">Configure</a>
+                                <a href="#" class="btn-details">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roma -->
+                    <div class="model-card">
+                        <div class="model-image">ROMA</div>
+                        <div class="model-info">
+                            <div class="model-category">V8 GT Coupé</div>
+                            <h3 class="model-name">Roma</h3>
+                            <div class="model-specs">
+                                <div class="spec-item">
+                                    <span class="spec-value">620</span>
+                                    <span class="spec-label">HP</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">3.4</span>
+                                    <span class="spec-label">0-100 KM/H</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">320</span>
+                                    <span class="spec-label">TOP SPEED</span>
+                                </div>
+                            </div>
+                            <p class="model-description">Contemporary interpretation of the Italian 'Dolce Vita', combining timeless elegance with cutting-edge technology.</p>
+                            <div class="model-actions">
+                                <a href="#" class="btn-configure">Configure</a>
+                                <a href="#" class="btn-details">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Purosangue -->
+                    <div class="model-card">
+                        <div class="model-image">PUROSANGUE</div>
+                        <div class="model-info">
+                            <div class="model-category">V12 Four-door Sports Car</div>
+                            <h3 class="model-name">Purosangue</h3>
+                            <div class="model-specs">
+                                <div class="spec-item">
+                                    <span class="spec-value">725</span>
+                                    <span class="spec-label">HP</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">3.3</span>
+                                    <span class="spec-label">0-100 KM/H</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-value">310</span>
+                                    <span class="spec-label">TOP SPEED</span>
+                                </div>
+                            </div>
+                            <p class="model-description">Ferrari's first four-door four-seater model, redefining the concept of luxury transportation with unmistakable Ferrari DNA.</p>
+                            <div class="model-actions">
+                                <a href="#" class="btn-configure">Configure</a>
+                                <a href="#" class="btn-details">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience-section">
+            <div class="container">
+                <div class="experience-content">
+                    <h2 class="experience-title">The Ferrari Experience</h2>
+                    <p class="experience-text">Owning a Ferrari goes beyond the vehicle itself. It's about joining an exclusive community of passionate enthusiasts and accessing unparalleled experiences that celebrate the essence of the prancing horse.</p>
+                </div>
+                
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <div class="experience-icon">🏁</div>
+                        <h3 class="experience-item-title">Driving Courses</h3>
+                        <p class="experience-item-desc">Master your Ferrari with professional instruction at world-renowned circuits including Fiorano and Maranello.</p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-icon">🏛️</div>
+                        <h3 class="experience-item-title">Museums</h3>
+                        <p class="experience-item-desc">Discover the rich history and heritage of Ferrari through our museums in Maranello and Modena.</p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-icon">⚙️</div>
+                        <h3 class="experience-item-title">Tailor Made</h3>
+                        <p class="experience-item-desc">Create your unique Ferrari through our exclusive personalization program with infinite possibilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <h2 class="newsletter-title">Stay Updated</h2>
+                <p class="newsletter-text">Be the first to know about new models, exclusive events, and the latest Ferrari news.</p>
+                <div class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
