@@ -1,0 +1,583 @@
+/*
+  ferrari.css
+  Guia rápido para estudante:
+  - Cole aqui o bloco de estilos que estava em <style> dentro de ferrari.html.
+  - Ajuste os caminhos das imagens: como este arquivo fica em css/, use ../images/nome.ext
+  - Organize o CSS por seções: Reset / Header / Sections / Responsive
+  - Boas práticas: comente partes que você não entendeu e teste no navegador.
+*/
+
+/* Exemplo de reset rápido (copie se a página precisa) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* TODO: cole os estilos originais da ferrari.html abaixo desta linha */
+/* Exemplo de comentário que você pode usar:
+   .hero /* estilo do bloco principal da página */ 
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #e0e0e0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.ferrari-logo {
+    width: 40px;
+    height: 40px;
+    background: #FFD700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    margin-right: 30px;
+    font-size: 12px;
+}
+.ferrari-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.nav-main {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-main a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-main a:hover {
+    color: #666;
+}
+
+.nav-main a.active {
+    color: #FFD700;
+    font-weight: 700;
+}
+
+.search-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 80px;
+}
+
+/* Hero Section */
+.brand-hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23FFD700;stop-opacity:0.3" /><stop offset="70%" style="stop-color:%23000000;stop-opacity:0.8" /><stop offset="100%" style="stop-color:%23000000;stop-opacity:1" /></radialGradient></defs><rect width="1920" height="1080" fill="url(%23grad)"/><polygon fill="%23FFD700" points="960,300 1200,540 960,780 720,540" opacity="0.2"/><text x="960" y="600" font-family="Arial" font-size="120" font-weight="bold" text-anchor="middle" fill="%23FFD700" opacity="0.1">FERRARI</text></svg>');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 0 30px;
+}
+
+.hero-year {
+    font-size: 1rem;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 100;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    line-height: 1;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    color: #ddd;
+    line-height: 1.4;
+    margin-bottom: 60px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-story {
+    background: transparent;
+    color: #fff;
+    padding: 20px 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #fff;
+    transition: all 0.4s ease;
+}
+
+.btn-story:hover {
+    background: #fff;
+    color: #000;
+}
+
+.btn-heritage {
+    background: #FFD700;
+    color: #000;
+    padding: 20px 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #FFD700;
+    transition: all 0.4s ease;
+}
+
+.btn-heritage:hover {
+    background: transparent;
+    color: #FFD700;
+}
+
+/* Story Timeline */
+.timeline-section {
+    padding: 150px 0;
+    background: #f8f8f8;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.section-desc {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #FFD700;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 0;
+    width: 45%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.timeline-year {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+
+.timeline-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-desc {
+    color: #666;
+    line-height: 1.6;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Values Section */
+.values-section {
+    padding: 150px 0;
+    background: #000;
+    color: #fff;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+    margin-top: 80px;
+}
+
+.value-item {
+    text-align: center;
+    padding: 60px 40px;
+    background: #111;
+    border: 1px solid #333;
+    transition: all 0.4s ease;
+}
+
+.value-item:hover {
+    background: #222;
+    border-color: #FFD700;
+    transform: translateY(-10px);
+}
+
+.value-icon {
+    font-size: 4rem;
+    color: #FFD700;
+    margin-bottom: 40px;
+}
+
+.value-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.value-desc {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Innovation Section */
+.innovation-section {
+    padding: 150px 0;
+    background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+}
+
+.innovation-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.innovation-text {
+    padding: 60px 0;
+}
+
+.innovation-title {
+    font-size: 3rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.innovation-desc {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.innovation-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FFD700;
+    display: block;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.innovation-visual {
+    height: 500px;
+    background: linear-gradient(45deg, #000 0%, #333 50%, #FFD700 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Racing Legacy */
+.racing-section {
+    padding: 150px 0;
+    background: #000;
+    color: #fff;
+}
+
+.racing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.racing-achievement {
+    text-align: center;
+    padding: 40px 20px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.racing-achievement:hover {
+    border-color: #FFD700;
+    background: #111;
+}
+
+.racing-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.racing-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.racing-desc {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Newsletter CTA */
+.cta-section {
+    padding: 100px 0;
+    background: #FFD700;
+    color: #000;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.cta-desc {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.cta-button {
+    background: #000;
+    color: #fff;
+    padding: 20px 60px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #000;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: transparent;
+    color: #000;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .innovation-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .racing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 20px;
+    }
+    
+    .nav-main {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 6px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column !important;
+        align-items: flex-start;
+        padding-left: 50px;
+    }
+
+    .timeline-content {
+        width: 100%;
+    }
+
+    .timeline-marker {
+        left: 20px;
+    }
+
+    .racing-grid {
+        grid-template-columns: 1fr;
+    }
+}

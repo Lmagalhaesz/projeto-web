@@ -1,0 +1,629 @@
+/*
+  sf25.css
+  - Coloque aqui os estilos específicos da página sf25.html.
+  - Lembre-se de atualizar paths para imagens (../images/).
+  - Comentários são suas anotações: escreva o que cada bloco faz para facilitar revisão.
+*/
+
+/* Reset recomendado */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* TODO: cole os estilos originais do sf25.html abaixo */
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #e0e0e0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.ferrari-logo {
+    width: 40px;
+    height: 40px;
+    background: #FFD700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    margin-right: 30px;
+    font-size: 12px;
+}
+.ferrari-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.nav-main {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-main a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-main a:hover {
+    color: #666;
+}
+
+.nav-main a.active {
+    color: #FFD700;
+    font-weight: 700;
+}
+
+.search-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 80px;
+}
+
+/* Hero Section */
+.sf25-hero {
+    height: 100vh;
+    background: url(images/Ferrari-SF-25\ \(1\).jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 0 30px;
+}
+
+.hero-badge {
+    background: #FFD700;
+    color: #000;
+    padding: 8px 25px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    display: inline-block;
+}
+
+.hero-title {
+    font-size: 6rem;
+    font-weight: 100;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    line-height: 1;
+}
+
+.hero-subtitle {
+    font-size: 1.6rem;
+    color: #ddd;
+    line-height: 1.4;
+    margin-bottom: 60px;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+.hero-specs {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.spec-item {
+    text-align: center;
+}
+
+.spec-value {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FFD700;
+    display: block;
+    line-height: 1;
+}
+
+.spec-label {
+    font-size: 12px;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* Technical Section */
+.technical-section {
+    padding: 150px 0;
+    background: #f8f8f8;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.section-desc {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 80px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.tech-visual {
+    height: 500px;
+    background: linear-gradient(45deg, #8B0000 0%, #000 50%, #FFD700 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-info {
+    padding: 40px 0;
+}
+
+.tech-title {
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    color: #8B0000;
+}
+
+.tech-desc {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.tech-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.tech-spec-item {
+    padding: 25px;
+    background: #fff;
+    border-left: 4px solid #FFD700;
+}
+
+.tech-spec-title {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8B0000;
+    margin-bottom: 10px;
+}
+
+.tech-spec-value {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #000;
+}
+
+/* Drivers Section */
+.drivers-section {
+    padding: 150px 0;
+    background: #000;
+    color: #fff;
+}
+
+.drivers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 80px;
+}
+
+.driver-card {
+    background: #111;
+    border: 1px solid #333;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.driver-card:hover {
+    border-color: #FFD700;
+    transform: translateY(-10px);
+}
+
+.driver-image {
+    height: 400px;
+    background: url(images/charles-leclerc-1024x683.jpeg)  no-repeat center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+}
+
+.driver-image2 {
+    height: 400px;
+    background: url(images/lewis-hamilton-of-great-britain-and-mercedes-walks-in-the-news-photo-1722974620.avif)  no-repeat center center;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+}
+
+
+.driver-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #FFD700;
+    color: #000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.driver-info {
+    padding: 40px 35px;
+}
+
+.driver-name {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.driver-role {
+    font-size: 12px;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.driver-desc {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.driver-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.driver-stat {
+    text-align: center;
+}
+
+.driver-stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #FFD700;
+    display: block;
+}
+
+.driver-stat-label {
+    font-size: 10px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* Innovation Section */
+.innovation-section {
+    padding: 150px 0;
+    background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+}
+
+.innovation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.innovation-item {
+    background: #fff;
+    padding: 50px 40px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.innovation-item:hover {
+    border-color: #8B0000;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.innovation-icon {
+    font-size: 3.5rem;
+    color: #8B0000;
+    margin-bottom: 30px;
+}
+
+.innovation-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+.innovation-desc {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Championship Section */
+.championship-section {
+    padding: 150px 0;
+    background: #8B0000;
+    color: #fff;
+    text-align: center;
+}
+
+.championship-title {
+    font-size: 4rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin-bottom: 40px;
+}
+
+.championship-desc {
+    font-size: 1.3rem;
+    color: #ddd;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+}
+
+.championship-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.championship-stat {
+    padding: 40px 20px;
+    border: 1px solid #FFD700;
+    transition: all 0.3s ease;
+}
+
+.championship-stat:hover {
+    background: #FFD700;
+    color: #000;
+}
+
+.championship-number {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.championship-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 100px 0;
+    background: #FFD700;
+    color: #000;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.8rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.cta-desc {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    background: #000;
+    color: #fff;
+    padding: 20px 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #000;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: transparent;
+    color: #000;
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: #000;
+    border-color: #000;
+}
+
+.cta-button.secondary:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .drivers-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .innovation-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .championship-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 20px;
+    }
+    
+    .nav-main {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 6px;
+    }
+
+    .hero-specs {
+        gap: 30px;
+    }
+
+    .spec-value {
+        font-size: 2rem;
+    }
+
+    .championship-stats {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
