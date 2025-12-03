@@ -1,42 +1,9 @@
-/*
-  Mudanças na página causadas por este script (resumo para testes rápidos):
-  - Todas as <img> recebem loading="lazy" (melhora performance em telas móveis).
-  - Elementos de notícias, coleções e modelos aparecem com animação ao entrar na tela.
-  - Botão "🔍 Search" abre um overlay/modal simples para busca.
-  - Botão "View all news" faz scroll suave até a seção de notícias.
-  - Ao rolar, o header recebe/remover sombra (indicação visual de scroll).
-  - O link do menu é destacado automaticamente quando a seção correspondente está visível.
-  - Clicar em "Discover more" abre um modal com o nome do modelo.
-  - Clicar em um item de coleção alterna uma borda de seleção e exibe um toast temporário.
-
-  Como testar (passo-a-passo rápido):
-  1. Abra index.html no navegador.
-  2. Role a página: verá sombra no header e entradas animadas.
-  3. Clique em "🔍 Search": abre overlay com input.
-  4. Clique em "View all news": deverá rolar até notícias.
-  5. Clique em "Discover more" em um model-card: abre modal.
-  6. Clique em qualquer collection-item: verá seleção destacada e um toast.
-  7. Observe que imagens só carregam quando necessárias (lazy-load) — use DevTools para simular rede lenta.
-*/
-
-document.addEventListener('DOMContentLoaded', () => {
-  /* ========== LAZY-LOAD DE IMAGENS ==========
-     O que faz: adiciona attrib `loading="lazy"` em todas as imagens.
-     Por que: melhora desempenho (imagens fora da tela não são baixadas imediatamente).
-     Como testar: abra DevTools > Network > throttling (Slow 3G) e role a página.
-  */
+  document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('img').forEach(img => {
     img.loading = 'lazy';
     // Observação: navegadores modernos respeitam esse atributo; alternativa: IntersectionObserver.
   });
 
-  /* ========== REVEAL ON SCROLL (ANIMAÇÃO AO ENTRAR NA TELA) ==========
-     O que faz: inicializa elementos invisíveis e usa IntersectionObserver para animá-los.
-     Elementos afetados: .news-item, .collection-item, .model-card
-     Efeito visual: opacidade vai de 0 -> 1 e `translateY(30px)` -> 0
-     Por que: melhora percepção de "entrada" de conteúdo; fica mais moderno.
-     Como testar: role a página e observe cada bloco aparecer com transição.
-  */
   const seletorRevelar = '.news-item, .collection-item, .model-card';
   document.querySelectorAll(seletorRevelar).forEach(el => {
     el.style.opacity = '0';
@@ -213,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     titulo.style.marginTop = '0';
 
     const p = document.createElement('p');
-    p.textContent = 'Detalhes do modelo podem ser adicionados aqui.';
+    p.textContent = 'O 296 Challenge passa por análises da imprensa internacional no circuito de Monteblanco.';
 
     const btnFechar = document.createElement('button');
     btnFechar.textContent = 'Fechar';
@@ -261,4 +228,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => toast.remove(), 1900);
   }
 
-}); // fim DOMContentLoaded
+});
