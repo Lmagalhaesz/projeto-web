@@ -1,6 +1,4 @@
 /*
-  index.css
-  Documentação para estudante (Nível: 1º período de CC - desenvolvimento web)
   - Este arquivo contém o estilo da página index.html.
   - Dica sobre paths: como este arquivo está em css/, o caminho relativo para imagens é ../images/nomedaimagem.ext
   - Organização: agrupei o CSS por seções (reset, header, hero, news, collections, models, responsive, footer).
@@ -462,6 +460,12 @@ body {
   overflow: hidden;
 }
 
+.model-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .model-info {
   padding: 50px 40px;
 }
@@ -505,39 +509,330 @@ body {
    Responsive (breakpoints)
    - Explique: use media queries para adaptar layout em diferentes larguras de tela
 */
+
+/* Tablet grande / Desktop pequeno */
 @media (max-width: 1200px) {
   .collections-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .models-grid {
+    gap: 40px;
+  }
+  .news-grid {
+    gap: 40px;
+  }
 }
 
-@media (max-width: 768px) {
+/* Tablet */
+@media (max-width: 992px) {
   .header-container {
-    padding: 0 20px;
+    padding: 0 24px;
   }
-
+  .container {
+    padding: 0 24px;
+  }
   .nav-main {
-    display: none; /* simplificação para mobile; poderia ser um menu hamburger */
+    gap: 20px;
   }
+  .nav-main a {
+    font-size: 12px;
+  }
+  .hero-title {
+    font-size: 4rem;
+    letter-spacing: 5px;
+  }
+  .hero-nav {
+    gap: 12px;
+    font-size: 12px;
+  }
+  .news-section,
+  .collections-section,
+  .models-section {
+    padding: 80px 0;
+  }
+  .section-header {
+    margin-bottom: 60px;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .models-grid {
+    gap: 30px;
+  }
+  .model-image {
+    height: 300px;
+  }
+  .model-info {
+    padding: 30px 25px;
+  }
+  .model-name {
+    font-size: 1.8rem;
+  }
+}
 
+/* Tablet pequeno */
+@media (max-width: 768px) {
+  .header {
+    height: 60px;
+  }
+  .header-container {
+    padding: 0 16px;
+  }
+  .main-content {
+    margin-top: 60px;
+  }
+  .hero-section {
+    height: calc(100vh - 60px);
+    padding: 40px 16px;
+  }
+  .ferrari-logo {
+    margin-right: 16px;
+  }
+  .nav-main {
+    gap: 12px;
+  }
+  .nav-main a {
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+  .search-btn {
+    font-size: 14px;
+  }
+  .hero-nav {
+    display: none;
+  }
   .hero-title {
     font-size: 3rem;
     letter-spacing: 4px;
   }
-
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  .btn-discover {
+    padding: 14px 32px;
+    font-size: 13px;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .news-section,
+  .collections-section,
+  .models-section {
+    padding: 60px 0;
+  }
   .news-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 24px;
   }
-
-  .models-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .news-image {
+    height: 200px;
   }
-
+  .news-content {
+    padding: 24px 20px;
+  }
+  .news-title {
+    font-size: 1.2rem;
+  }
+  .view-all {
+    margin-top: 40px;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+  }
   .collections-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .collection-item {
+    padding: 24px 16px;
+  }
+  .collection-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  .collection-title {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  .collection-subtitle {
+    font-size: 0.8rem;
+  }
+  .models-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .model-image {
+    height: 250px;
+  }
+  .model-info {
+    padding: 24px 20px;
+  }
+  .model-name {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  .model-link-btn {
+    padding: 12px 24px;
+    font-size: 11px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 12px;
+  }
+  .ferrari-logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+  }
+  .nav-main {
+    gap: 8px;
+  }
+  .nav-main a {
+    font-size: 9px;
+  }
+  .search-section {
+    display: none;
+  }
+  .hero-section {
+    padding: 32px 12px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+  }
+  .hero-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+  .btn-discover {
+    padding: 12px 24px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .container {
+    padding: 0 12px;
+  }
+  .news-section,
+  .collections-section,
+  .models-section {
+    padding: 40px 0;
+  }
+  .news-image {
+    height: 180px;
+  }
+  .news-content {
+    padding: 20px 16px;
+  }
+  .news-title {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .news-excerpt {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .view-all-btn {
+    padding: 12px 28px;
+    font-size: 12px;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+  .collections-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .collection-item {
+    padding: 20px 12px;
+  }
+  .collection-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  .collection-title {
+    font-size: 0.8rem;
+  }
+  .collection-subtitle {
+    font-size: 0.7rem;
+  }
+  .model-image {
+    height: 200px;
+  }
+  .model-info {
+    padding: 20px 16px;
+  }
+  .model-category {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+  .model-name {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 360px) {
+  .nav-main a {
+    font-size: 8px;
+  }
+  .hero-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  .hero-subtitle {
+    font-size: 0.75rem;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .collections-grid {
+    grid-template-columns: 1fr;
+  }
+  .collection-item {
+    aspect-ratio: auto;
+    padding: 24px 16px;
+  }
+}
+
+/* Cards e botões mais amadores */
+.model-card, .news-item, .collection-item {
+  box-shadow: none !important;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  transition: none !important;
+}
+.model-card:hover, .news-item:hover, .collection-item:hover {
+  background: #f9f9f9;
+  transform: none !important;
+}
+.btn-discover, .model-link-btn, .btn-configure, .btn-details {
+  background: #eee;
+  color: #222;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  transition: none;
+}
+.btn-discover:hover, .model-link-btn:hover, .btn-configure:hover, .btn-details:hover {
+  background: #ddd;
+  color: #000;
 }
 
 /* Footer: caso use variáveis CSS, defina no :root */
@@ -555,8 +850,7 @@ footer div {
   margin: 7px 0;
 }
 
-@media (max-width: 480px) {
-  .collections-grid {
-    grid-template-columns: 1fr;
-  }
+:root {
+  --radius: 4px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
 }

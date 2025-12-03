@@ -1,12 +1,3 @@
-/*
-  ferrari.css
-  Guia rápido para estudante:
-  - Cole aqui o bloco de estilos que estava em <style> dentro de ferrari.html.
-  - Ajuste os caminhos das imagens: como este arquivo fica em css/, use ../images/nome.ext
-  - Organize o CSS por seções: Reset / Header / Sections / Responsive
-  - Boas práticas: comente partes que você não entendeu e teste no navegador.
-*/
-
 /* Exemplo de reset rápido (copie se a página precisa) */
 * {
   margin: 0;
@@ -524,60 +515,499 @@ body {
     color: #000;
 }
 
-/* Responsive */
+/* -------------------------
+   Responsividade Completa
+   ------------------------- */
+
+/* Desktop grande para médio */
 @media (max-width: 1200px) {
     .values-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 40px;
     }
-
     .innovation-content {
-        grid-template-columns: 1fr;
         gap: 60px;
     }
-
     .racing-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
     }
 }
 
-@media (max-width: 768px) {
+/* Tablet grande */
+@media (max-width: 992px) {
     .header-container {
-        padding: 0 20px;
+        padding: 0 24px;
     }
-    
+    .container {
+        padding: 0 24px;
+    }
     .nav-main {
-        display: none;
+        gap: 20px;
     }
-
+    .nav-main a {
+        font-size: 12px;
+    }
     .hero-title {
-        font-size: 2.5rem;
-        letter-spacing: 6px;
+        font-size: 3.5rem;
+        letter-spacing: 8px;
     }
-
     .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    .hero-year {
+        letter-spacing: 5px;
+    }
+    .timeline-section,
+    .values-section,
+    .innovation-section,
+    .racing-section {
+        padding: 100px 0;
+    }
+    .section-header {
+        margin-bottom: 60px;
+    }
+    .section-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+    .section-desc {
+        font-size: 1.1rem;
+    }
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 60px;
+    }
+    .value-item {
+        padding: 40px 30px;
+    }
+    .value-icon {
+        font-size: 3rem;
+        margin-bottom: 24px;
+    }
+    .value-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    .innovation-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .innovation-title {
+        font-size: 2.2rem;
+    }
+    .innovation-visual {
+        height: 350px;
+        order: -1;
+    }
+    .innovation-text {
+        padding: 0;
+    }
+    .racing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-top: 60px;
+    }
+    .racing-number {
+        font-size: 3rem;
+    }
+    .cta-section {
+        padding: 80px 0;
+    }
+    .cta-title {
+        font-size: 2rem;
+    }
+    /* Timeline ajustes */
+    .timeline-content {
+        padding: 30px;
+    }
+    .timeline-year {
+        font-size: 1.6rem;
+    }
+    .timeline-title {
         font-size: 1.2rem;
     }
+}
 
+/* Tablet */
+@media (max-width: 768px) {
+    .header {
+        height: 60px;
+    }
+    .header-container {
+        padding: 0 16px;
+    }
+    .main-content {
+        margin-top: 60px;
+    }
+    .ferrari-logo {
+        margin-right: 16px;
+    }
+    .nav-main {
+        gap: 12px;
+    }
+    .nav-main a {
+        font-size: 11px;
+        letter-spacing: 0;
+    }
+    .search-btn {
+        font-size: 14px;
+    }
+    .brand-hero {
+        height: calc(100vh - 60px);
+        min-height: 500px;
+    }
+    .hero-content {
+        padding: 0 20px;
+    }
+    .hero-year {
+        font-size: 0.85rem;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+        margin-bottom: 24px;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+    }
+    .hero-cta {
+        gap: 16px;
+    }
+    .btn-story,
+    .btn-heritage {
+        padding: 14px 32px;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+    .container {
+        padding: 0 16px;
+    }
+    .timeline-section,
+    .values-section,
+    .innovation-section,
+    .racing-section {
+        padding: 60px 0;
+    }
+    .section-header {
+        margin-bottom: 40px;
+    }
+    .section-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+        margin-bottom: 24px;
+    }
+    .section-desc {
+        font-size: 1rem;
+    }
+    /* Timeline mobile - vertical */
     .timeline::before {
         left: 20px;
     }
-
     .timeline-item {
-        flex-direction: column !important;
-        align-items: flex-start;
+        flex-direction: row !important;
+        margin-bottom: 40px;
         padding-left: 50px;
     }
-
     .timeline-content {
         width: 100%;
+        padding: 24px 20px;
     }
-
     .timeline-marker {
         left: 20px;
+        width: 16px;
+        height: 16px;
     }
+    .timeline-year {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    .timeline-title {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    .timeline-desc {
+        font-size: 14px;
+    }
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .value-item {
+        padding: 32px 24px;
+    }
+    .value-icon {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    .value-title {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+    }
+    .value-desc {
+        font-size: 0.95rem;
+    }
+    .innovation-title {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+    }
+    .innovation-desc {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .innovation-stats {
+        gap: 24px;
+    }
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    .stat-label {
+        font-size: 11px;
+    }
+    .innovation-visual {
+        height: 250px;
+        font-size: 2.5rem;
+    }
+    .racing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 40px;
+    }
+    .racing-achievement {
+        padding: 24px 16px;
+    }
+    .racing-number {
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+    }
+    .racing-title {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+    .racing-desc {
+        font-size: 12px;
+    }
+    .cta-section {
+        padding: 60px 0;
+    }
+    .cta-title {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+    .cta-desc {
+        font-size: 1rem;
+        margin-bottom: 32px;
+        padding: 0 16px;
+    }
+    .cta-button {
+        padding: 14px 40px;
+        font-size: 12px;
+    }
+}
 
+/* Mobile */
+@media (max-width: 480px) {
+    .header-container {
+        padding: 0 12px;
+    }
+    .ferrari-logo {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+    }
+    .nav-main {
+        gap: 8px;
+    }
+    .nav-main a {
+        font-size: 9px;
+    }
+    .search-section {
+        display: none;
+    }
+    .hero-content {
+        padding: 0 12px;
+    }
+    .hero-year {
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        margin-bottom: 16px;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+    }
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .btn-story,
+    .btn-heritage {
+        padding: 12px 28px;
+        font-size: 11px;
+        width: 100%;
+        max-width: 220px;
+        text-align: center;
+    }
+    .container {
+        padding: 0 12px;
+    }
+    .timeline-section,
+    .values-section,
+    .innovation-section,
+    .racing-section {
+        padding: 40px 0;
+    }
+    .section-title {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+    .section-desc {
+        font-size: 0.9rem;
+    }
+    /* Timeline mobile pequeno */
+    .timeline::before {
+        left: 12px;
+    }
+    .timeline-item {
+        padding-left: 36px;
+        margin-bottom: 32px;
+    }
+    .timeline-marker {
+        left: 12px;
+        width: 12px;
+        height: 12px;
+    }
+    .timeline-content {
+        padding: 20px 16px;
+    }
+    .timeline-year {
+        font-size: 1.2rem;
+    }
+    .timeline-title {
+        font-size: 1rem;
+    }
+    .value-item {
+        padding: 24px 20px;
+    }
+    .value-icon {
+        font-size: 2rem;
+        margin-bottom: 16px;
+    }
+    .value-title {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    .innovation-title {
+        font-size: 1.5rem;
+    }
+    .innovation-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    .stat-label {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+    .innovation-visual {
+        height: 200px;
+        font-size: 2rem;
+    }
+    .racing-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .racing-achievement {
+        padding: 20px 12px;
+    }
+    .racing-number {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+    .racing-title {
+        font-size: 0.75rem;
+    }
+    .racing-desc {
+        font-size: 11px;
+    }
+    .cta-section {
+        padding: 40px 0;
+    }
+    .cta-title {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+    .cta-desc {
+        font-size: 0.9rem;
+        padding: 0 12px;
+    }
+    .cta-button {
+        padding: 12px 32px;
+        font-size: 11px;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 360px) {
+    .nav-main a {
+        font-size: 8px;
+    }
+    .hero-title {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    .section-title {
+        font-size: 1.4rem;
+    }
     .racing-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
+    .racing-achievement {
+        padding: 24px 20px;
+    }
+    .racing-number {
+        font-size: 2.5rem;
+    }
+}
+
+.value-item, .innovation-item, .racing-achievement {
+  box-shadow: none !important;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  transition: none !important;
+}
+.value-item:hover, .innovation-item:hover, .racing-achievement:hover {
+  background: #f9f9f9;
+  transform: none !important;
+}
+.btn-story, .btn-heritage, .cta-button {
+  background: #eee;
+  color: #222;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  transition: none;
+}
+.btn-story:hover, .btn-heritage:hover, .cta-button:hover {
+  background: #ddd;
+  color: #000;
 }
